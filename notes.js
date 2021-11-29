@@ -48,3 +48,76 @@ Player.prototype.getStats = function() {
         }
         return false;
       };
+
+// The .splice() method removes items from an array and returns the removed item(s) as a new array.
+
+// below is an example of a new object inheriting methods
+const diane = {
+    name: 'Diane',
+    sayHello: function() {
+      console.log('hello');
+    }
+  };
+  
+  const obj = Object.create(diane);
+  
+  // prints '{}' because this object has no direct properties
+  console.log(obj);
+  
+  // still works because obj inherited this method from diane
+  obj.sayHello();
+
+//   array destructuring
+const [first, second] = ['first item', 'second item'];
+
+// rest operator
+const {name, ...details} = {name: 'Diane', occupation: 'Developer', location: 'USA'};
+
+// asynchronous promises
+new Promise((resolve, reject) => {
+ setTimeout(() => {
+   resolve('success');
+ }, 2000);
+});
+
+class Car {
+    constructor(make, model) {
+      this.make = make;
+      this.model = model;
+    }
+  
+    honk() {
+      console.log('beep beep');
+    }
+  }
+  
+  // car objects are still created and used the same way
+  const car = new Car('Honda', 'Civic');
+  car.honk();
+
+//   same as the below
+function Car(make, model) {
+    this.make = make;
+    this.model = model;
+  }
+  
+  Car.prototype.honk = function() {
+    console.log('beep bee');
+  };
+  
+  const car = new Car('Honda', 'Civic');
+  car.honk();
+
+//   no hoisting in ES 6
+// Uncaught ReferenceError: Cannot access 'Car' before initialization
+const car = new Car('Honda', 'Civic');
+
+class Car {
+ constructor(make, model) {
+   this.make = make;
+   this.model = model;
+ }
+}
+
+// The super keyword is how we can reference the parent object. 
+// In a constructor(), calling super() will call the constructor() of the parent.
